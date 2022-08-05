@@ -1,0 +1,21 @@
+
+allOf:
+  - $ref: '#/components/schemas/Blob'
+  - type: object
+    required:
+      - attributes
+    properties:
+      attributes:
+        type: object
+        required:
+          - blob
+        properties:
+          blob:
+            type: string
+            format: blobstatus
+            enum:
+              - created
+              - failed
+          sent_at:
+            type: string
+            format: time.Time

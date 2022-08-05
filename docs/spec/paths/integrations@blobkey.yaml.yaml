@@ -1,0 +1,48 @@
+post:
+  tags:
+    - BlobKey
+  summary: BlobKey
+  operationId: BlobKey
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - data
+          properties:
+            data:
+              type: object
+              $ref: '#/components/schemas/Blob'Key
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                type: object
+                $ref: '#/components/schemas/BlobKey'
+
+
+get:
+  tags:
+    - BlobKey
+  summary: BlobKey
+  operationId: BlobKey
+  
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BlobKey'
+              
