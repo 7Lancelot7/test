@@ -1,38 +1,18 @@
-post:
-  tags:
-    - BlobKey
-  summary: BlobKey
-  operationId: BlobKey
-  requestBody:
-    content:
-      application/json:
-        schema:
-          type: object
-          required:
-            - data
-          properties:
-            data:
-              type: object
-              $ref: '#/components/schemas/Blob'Key
-  responses:
-    '200':
-      description: Success
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              data:
-                type: object
-                $ref: '#/components/schemas/BlobKey'
-
-
 get:
   tags:
     - BlobKey
   summary: BlobKey
+  description: "BlobKeys"
   operationId: BlobKey
-  
+  parameters:
+    - $ref: '#/components/parameters/pageNumberParam'
+    - $ref: '#/components/parameters/pageLimitParam'
+    - $ref: '#/components/parameters/sortingParam'
+    - in: query
+      name: 'filter[topic]'
+      required: false
+      schema:
+        type: string
   responses:
     '200':
       description: Success
@@ -46,3 +26,21 @@ get:
                 items:
                   $ref: '#/components/schemas/BlobKey'
               
+post:
+  tags:
+    - BlobKey
+  summary: BlobKey
+  description: "BlobKey"
+  operationId: BlobKey
+  responses:
+    '200':
+      description: "Success"
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                type: object
+                $ref: '#/components/schemas/BlobKey'
+

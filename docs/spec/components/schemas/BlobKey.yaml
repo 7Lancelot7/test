@@ -1,0 +1,9 @@
+id: string
+type: string ("blobkey")
+attributes:
+  content: json
+relationships:
+  owner:
+    data:
+      id: string
+      type: string ("account")

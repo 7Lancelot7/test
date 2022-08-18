@@ -1,21 +1,15 @@
-
 allOf:
-  - $ref: '#/components/schemas/Blob'
+  - $ref: '#/components/schemas/BlobKey'
   - type: object
     required:
       - attributes
+      - relationships
     properties:
       attributes:
-        type: object
-        required:
-          - blob
-        properties:
-          blob:
-            type: string
-            format: blobstatus
-            enum:
-              - created
-              - failed
-          sent_at:
-            type: string
-            format: time.Time
+	content: json  
+      relationships:
+        owner:
+          data:
+            id: string
+            type: string ("account")
+      
